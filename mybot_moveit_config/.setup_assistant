@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: mybot
+    relative_path: urdf/mybot.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/mybot.srdf
+  CONFIG:
+    author_name: Tanvir Hossain Taaha
+    author_email: tanvir.taaha@gmail.com
+    generated_timestamp: 1678484137
