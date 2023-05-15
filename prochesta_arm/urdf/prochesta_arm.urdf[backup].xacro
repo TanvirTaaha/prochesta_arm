@@ -25,23 +25,32 @@
     <material name="green">
         <color rgba="0.0 1.0 0.5 1.0" />
     </material>
-    <link name="base_bar">
-        <!--inertial>
+    
+    <!-- _________________________________ -->
+    <link name="world"/>
+    <joint name="fixed_world" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="world"/>
+        <child link="base_plane"/>
+    </joint>
+    
+    <link name="base_plane">
+        <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.392347184025621" />
             <inertia ixx="0.0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
-        </inertial-->
-        <visual>
-            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.01" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <box size="0.01 0.01 0.1"/>
+                <box size="1.5 1.5 0.02"/>
             </geometry>
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.01" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <box size="0.01 0.01 0.1"/>
+                <box size="1.5 1.5 0.02"/>
             </geometry>
         </collision>
     </link>
@@ -57,28 +66,30 @@
         <parent link="base_plane"/>
         <child link="base_bar"/>
         <axis xyz="0.0 0.0 0.0"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="1000.0" velocity="50.0"/>
     </joint>
-    <link name="base_plane">
-        <!--inertial>
+    <link name="base_bar">
+        <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.392347184025621" />
             <inertia ixx="0.0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
-        </inertial-->
-        <visual name="">
-            <origin xyz="0.0 0.0 0.01" rpy="0.0 0.0 0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <box size="1.5 1.5 0.02"/>
+                <box size="0.01 0.01 0.1"/>
             </geometry>
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.01" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <box size="1.5 1.5 0.02"/>
+                <box size="0.01 0.01 0.1"/>
             </geometry>
         </collision>
     </link>
+    <!-- _________________________________ -->
+    
     <link name="ArmBase">
         <inertial>
             <origin rpy="0 0 0" xyz="-0.0546412131471822 0.0142569733044021 0.0105265889786102" />
@@ -406,26 +417,6 @@
             <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="Joint_RightClaw_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_base_plane__ArmBase">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="base_plane__ArmBase">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="base_plane__ArmBase_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_base_bar__base_plane">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="base_bar__base_plane">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="base_bar__base_plane_motor">
             <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>

@@ -25,6 +25,7 @@
     <material name="green">
         <color rgba="0.0 1.0 0.5 1.0" />
     </material>
+    
     <!-- _________________________________ -->
     <link name="world"/>
     <joint name="fixed_world" type="fixed">
@@ -87,8 +88,8 @@
             </geometry>
         </collision>
     </link>
-    
     <!-- _________________________________ -->
+    
     <link name="ArmBase">
         <inertial>
             <origin rpy="0 0 0" xyz="-0.0546412131471822 0.0142569733044021 0.0105265889786102" />
@@ -343,30 +344,30 @@
     <transmission name="trans_ArmBase__BaseShaft">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="ArmBase__BaseShaft">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         </joint>
         <actuator name="ArmBase__BaseShaft_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_BaseShaft__Shoulder">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="BaseShaft__Shoulder">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         </joint>
         <actuator name="BaseShaft__Shoulder_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_Shoulder__Elbow">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="Shoulder__Elbow">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         </joint>
         <actuator name="Shoulder__Elbow_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
@@ -393,10 +394,10 @@
     <transmission name="trans_Pitch__Roll">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="Pitch__Roll">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         </joint>
         <actuator name="Pitch__Roll_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
